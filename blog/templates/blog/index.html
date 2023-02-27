@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+MY Blog
+{% endblock %}
+
+{% block css_files %}
+   <link rel='stylesheet' href='{% static 'blog/post.css' %}'>
+   <link rel='stylesheet' href='{% static 'blog/index.css' %}'>
+
+{% endblock %}
+
+{% block content %}
+
+
+<section id='welcom'>
+    <header>
+        <img src='{% static 'blog/images/my_photo.jpg' %}' alt='Heba - The Auther Of This Blog'>
+        <h2> HEBA'S BLOG </h2>
+    </header>
+    <p> Hi , I'm Heba and I Love To Blog About Tech The World ! </p>
+</section>
+
+<section id='latest-posts'>
+ <h2> My Latest Post </h2>
+
+ <ul>
+    {% for post in posts %}
+      {% include 'blog/includes/post.html' %}
+    {% endfor %}
+ </ul>
+</section>
+
+<section id='about'>
+    <h2> What I do </h2>
+    <p> I Love Programing I love to help others 
+        and I enjoy exploring new tecnologies in general !
+    </p>
+    <p>
+        My goal is to keep on growing as a developer 
+        and if I could help you do the same , I'd be very happy!
+    </p>
+</section>
+{% endblock %}
